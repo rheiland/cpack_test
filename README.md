@@ -1,1 +1,1 @@
-# cpack_test
+# cpack_test - foo
