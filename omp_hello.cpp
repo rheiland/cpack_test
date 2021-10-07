@@ -1,5 +1,7 @@
 /*
-clang++ -Xpreprocessor -fopenmp -m64 -std=c++11 -L/usr/local/opt/libomp/lib -lomp omp_hello.cpp -o hello_cpp 
+clang++ -Xpreprocessor -fopenmp -m64 -std=c++11 -L/usr/local/opt/libomp/lib -lomp omp_hello.cpp -o omp_hello 
+or,
+g++-11 -fopenmp omp_hello.cpp -o omp_hello
 */
 
 #include <iostream>
