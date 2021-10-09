@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.21)
+cmake_minimum_required (VERSION 3.10)
 project (omp_hello)
 add_executable(omp_hello omp_hello.cpp)
 
@@ -9,10 +9,8 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-# install(TARGETS "omp_hello" DESTINATION .)
-install(TARGETS omp_hello DESTINATION bin)
-install(DIRECTORY "${PROJECT_SOURCE_DIR}/config/" DESTINATION "config")
-
+# install(TARGETS "omp_hello" RUNTIME DESTINATION "bin" COMPONENT applications)
+install(TARGETS "omp_hello" )
 set(CPACK_GENERATOR "ZIP")
+include(InstallRequiredSystemLibraries)
 include(CPack)
-
