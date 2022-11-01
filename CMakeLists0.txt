@@ -1,7 +1,5 @@
 cmake_minimum_required (VERSION 3.21)
 project (omp_hello)
-
-set(CMAKE_CXX_STANDARD 11)
 add_executable(omp_hello omp_hello.cpp)
 
 find_package(OpenMP)
@@ -12,18 +10,8 @@ if (OPENMP_FOUND)
 endif()
 
 # install(TARGETS "omp_hello" DESTINATION .)
-# install(TARGETS omp_hello DESTINATION bin)
-# install(DIRECTORY "${PROJECT_SOURCE_DIR}/config/" DESTINATION "config")
-
-# /opt/homebrew/opt/libomp/lib/libomp.a
-# link_directories(/opt/homebrew/opt/libomp/lib)
-
-if (APPLE)
-    include_directories(/opt/homebrew/opt/libomp/include)
-    SET(EXTRA_LIBS /opt/homebrew/opt/libomp/lib/libomp.a)
-endif (APPLE)
-
-target_link_libraries(omp_hello ${EXTRA_LIBS})
+install(TARGETS omp_hello DESTINATION bin)
+install(DIRECTORY "${PROJECT_SOURCE_DIR}/config/" DESTINATION "config")
 
 set(CPACK_GENERATOR "ZIP")
 include(CPack)

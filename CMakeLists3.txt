@@ -4,22 +4,15 @@ project (omp_hello)
 set(CMAKE_CXX_STANDARD 11)
 add_executable(omp_hello omp_hello.cpp)
 
-find_package(OpenMP)
-if (OPENMP_FOUND)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
-endif()
-
 # install(TARGETS "omp_hello" DESTINATION .)
 # install(TARGETS omp_hello DESTINATION bin)
 # install(DIRECTORY "${PROJECT_SOURCE_DIR}/config/" DESTINATION "config")
 
+include_directories(/opt/homebrew/opt/libomp/include)
 # /opt/homebrew/opt/libomp/lib/libomp.a
-# link_directories(/opt/homebrew/opt/libomp/lib)
+link_directories(/opt/homebrew/opt/libomp/lib)
 
 if (APPLE)
-    include_directories(/opt/homebrew/opt/libomp/include)
     SET(EXTRA_LIBS /opt/homebrew/opt/libomp/lib/libomp.a)
 endif (APPLE)
 
