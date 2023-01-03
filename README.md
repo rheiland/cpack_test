@@ -7,7 +7,8 @@ cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang ..
 make
 ```
 
-Trying to then use `cpack` to bundle into a .zip seems problematic:
+This does indeed seem to build a binary `omp_hello` pgm that works cross-platform (on MacOS).
+Unfortunately, trying to use `cpack` to bundle it into a .zip seems problematic:
 ```
 cpack --verbose
 ```
